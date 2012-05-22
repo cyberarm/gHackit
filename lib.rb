@@ -1,10 +1,10 @@
 class Lib
  def Lib.gsw
-  File.open('D:\data\code\gHackit\save\save.yml', 'w')
+  File.open('./save/save.yml', 'w')
  end
 
  def Lib.gsr
-  File.open('D:\data\code\gHackit\save\save.yml', 'r')
+  File.open('./save/save.yml', 'r')
  end
  
  def Lib.main
@@ -23,6 +23,7 @@ Shoes.app do
  
  messages = stack do
   para "Welcome, #{Etc.getlogin}", stroke: lime
+  para "run: 'mission' to start."
  end
  
  keypress do |k|
@@ -52,7 +53,7 @@ Shoes.app do
      elsif $cmd.text == 'help'
       para "Help:", stroke: lime
        para "mail - Check for new missions.", stroke: lime
-       para "mission - Connect to Mission server and recieve mission.", stoke: lime
+       para "mission - Connect to Mission server and recieve mission.", stroke: lime
        para "about - displays information about gHackit", stroke: lime
        para "exit - Exit gHackit.", stroke: lime
       inscription

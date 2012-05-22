@@ -59,11 +59,11 @@ puts 'loaded MissionOne'
      elsif $cmd.text == 'retrieve_tools'
       para 'downloading MD5... please wait'
       para 'retrieving tools: MassDeletion5 and PortCrack2'
-      timer 5 do
+      timer 10 do
        messages.prepend {para 'downloaded MD5'}
        messages.prepend {para 'downloading PC2... please wait'}
       end
-      timer 7 do
+      timer 20 do
        messages.prepend {para 'downloaded PC2'}
        messages.prepend {para 'run: pc2 to start attack.'}
       end
@@ -71,7 +71,7 @@ puts 'loaded MissionOne'
       inscription
       
      elsif $cmd.text == 'help'
-      para 'retrieve_tools - retrieve_tools'
+      para 'retrieve_tools - retrieve tools required for mission.'
       para 'exit - close gHackit.'
       para 'md5 - delete all files.'
       para "pc2 - hack into the A.I's computer system."
@@ -82,10 +82,10 @@ puts 'loaded MissionOne'
        $pc2 = true
        para 'starting attack against: IP: 1.7.3.9 on Port: 576.'
        pro = para 'progress: 0%'
-       timer 1 do
+       timer 7 do
         pro.text = 'progress: 50%'
        end
-       timer 3 do
+       timer 14 do
         pro.text = 'progress: 100%'
         messages.prepend {para 'run: md5 to delete all system files.'}
        end
@@ -96,21 +96,23 @@ puts 'loaded MissionOne'
       
      elsif $cmd.text == 'md5'
       if $pc2 == true
-      timer 14 do
+      timer 22 do
        messages.prepend {para 'deleted man.vaz'}
        messages.prepend {para 'Complete. Disconnecting.'}
        @mission = {"mission" => 1}
        Lib.gsw.puts YAML.dump(@mission)
+       require_relative '../mails/one_complete.rb'
+       close
       end
-      timer 12 do
+      timer 16 do
        messages.prepend {para 'deleted data.vaz'}
        messages.prepend {para 'deleting man.vaz'}
       end
-      timer 8 do
+      timer 10 do
        messages.prepend {para 'deleted memory.vaz'}
        messages.prepend {para 'deleting data.vaz'}
       end
-      timer 4 do
+      timer 6 do
        messages.prepend {para 'deleted functions.vaz'}
        messages.prepend {para 'deleting memory.vaz'}
       end

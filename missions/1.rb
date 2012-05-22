@@ -9,6 +9,7 @@ $pc2 = false
 
 Shoes.app do
 puts 'loaded MissionOne'
+ background '#999'
  flow do
   background "#222"
   caption 'gHackit - 1.421.231.132', stroke: '#999'
@@ -34,10 +35,15 @@ puts 'loaded MissionOne'
     end
    end
   end
+  button 'cancel' do
+   Lib.main
+   close
+  end
  end
  flow do
   image "./icons/apps/utilities-terminal.png"
   $cmd = edit_line ""
+  $cmd.focus
  end
  messages = stack do
   para 'We will need some tools, MassDeletion5 and PortCrack2'
@@ -57,17 +63,19 @@ puts 'loaded MissionOne'
       end
       
      elsif $cmd.text == 'retrieve_tools'
-      para 'downloading MD5... please wait'
+      para 'downloading MassDeletion5... please wait'
       para 'retrieving tools: MassDeletion5 and PortCrack2'
       timer 10 do
-       messages.prepend {para 'downloaded MD5'}
-       messages.prepend {para 'downloading PC2... please wait'}
+       messages.prepend {para 'downloaded MassDeletion5'}
+       messages.prepend {para 'downloading PortCrack2... please wait'}
       end
       timer 20 do
-       messages.prepend {para 'downloaded PC2'}
-       messages.prepend {para 'run: pc2 to start attack.'}
+       messages.prepend {para 'downloaded PortCrack2'}
+       messages.prepend {para 'installing MassDeletion5'}
+       messages.prepend {para 'installing PortCrack2'}
+       messages.prepend {para "run: 'portcrack' to start attack.", stroke: lime}
+       $tools = true
       end
-      $tools = true
       inscription
       
      elsif $cmd.text == 'help'
@@ -77,9 +85,8 @@ puts 'loaded MissionOne'
       para "pc2 - hack into the A.I's computer system."
       inscription
       
-     elsif $cmd.text == 'pc2'
+     elsif $cmd.text == 'portcrack'
       if $tools == true
-       $pc2 = true
        para 'starting attack against: IP: 1.7.3.9 on Port: 576.'
        pro = para 'progress: 0%'
        timer 7 do
@@ -87,14 +94,15 @@ puts 'loaded MissionOne'
        end
        timer 14 do
         pro.text = 'progress: 100%'
-        messages.prepend {para 'run: md5 to delete all system files.'}
+        messages.prepend {para "run: 'massdelete' to delete all system files.", stroke: lime}
+        $pc2 = true
        end
       else
        para "Command '#{$cmd.text}' not found.\n Type 'help' for a list of commands", stroke: red
       end
       inscription
       
-     elsif $cmd.text == 'md5'
+     elsif $cmd.text == 'massdelete'
       if $pc2 == true
       timer 22 do
        messages.prepend {para 'deleted man.vaz'}
@@ -116,14 +124,23 @@ puts 'loaded MissionOne'
        messages.prepend {para 'deleted functions.vaz'}
        messages.prepend {para 'deleting memory.vaz'}
       end
-      para 'deleting functions.vaz'
+      timer 4 do
+       messages.prepend {inscription}
+       messages.prepend {para 'deleting functions.vaz'}
+      end
       
       para 'Running MassDeletion5, getting file list.'
-      para "Found 4 '.vaz' files:"
-      para '/home/dla/functions.vaz'
-      para '/home/dla/memory.vaz'
-      para '/home/dla/data.vaz'
-      para '/home/dla/man.vaz'
+      timer 2 do
+       messages.prepend do
+        para '/home/dla/functions.vaz'
+        para '/home/dla/memory.vaz'
+        para '/home/dla/data.vaz'
+        para '/home/dla/man.vaz'
+       end
+      timer 1 do
+       messages.prepend {para "Found 4 '.vaz' files:"}
+      end
+      end
       else
        para "Command '#{$cmd.text}' not found.\n Type 'help' for a list of commands", stroke: red
       end

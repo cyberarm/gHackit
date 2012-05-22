@@ -12,7 +12,7 @@
   para "Here's a symbol of our appreciation, 1000 Hackit credits."
   para "Sincerly, Sid Olson."
   button 'close and receive credits' do
-   load './../mail.rb'
+   load './mail.rb'
    close
   end
  end

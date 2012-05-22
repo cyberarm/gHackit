@@ -20,7 +20,7 @@
    close
   end
   button 'close' do
-   require_relative '../mail.rb'
+   load './mail.rb'
    close
   end
  end

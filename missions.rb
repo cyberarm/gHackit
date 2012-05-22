@@ -23,5 +23,5 @@ end
 
 rescue NoMethodError
  puts "loading MissionOne"
- require './missions/1.rb'
+ require './mails/one.rb'
 end

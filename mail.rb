@@ -3,7 +3,8 @@ require 'yaml'
 require_relative 'lib.rb'
 
  save = YAML.load(Lib.gsr.read)
- 
+
+begin 
 if File.open(Lib.gsr).read.include?('mission') == false
  Shoes.app do
   flow do
@@ -15,9 +16,13 @@ if File.open(Lib.gsr).read.include?('mission') == false
    background '#999'
    para 'Help!' 
    button 'read' do
-    require_relative 'mails/one.rb'
+    load './mails/one.rb'
     close
    end
+  end
+  button 'Refresh' do
+   load './mail.rb'
+   close
   end
  end
   
@@ -29,10 +34,18 @@ elsif save['mission'] == 1
    caption 'HackitMail', stroke: '#999'
   end
   stack do
+   background '#999'
+   para 'Destroy X Corporation' 
+   button 'read' do
+    load './mails/two.rb'
+    close
+   end
+  end
+  stack do
    background '#666'
    para 'Thank you' 
    button 'read' do
-    require_relative 'mails/one_complete.rb'
+    load './mails/one_complete.rb'
     close
    end
   end
@@ -40,19 +53,26 @@ elsif save['mission'] == 1
    background '#999'
    para 'Help!' 
    button 'read' do
-    require_relative 'mails/one.rb'
+    load './mails/one.rb'
     close
    end
+  end
+  button 'Refresh' do
+   load './mail.rb'
+   close
   end
  end
  
 elsif save['mission'] == 2
- require './missions/3.rb'
+ load './missions/3.rb'
  puts "Mission Three"
  
 elsif save['mission'] == 3
- require './missions/complete.rb'
+ load './missions/complete.rb'
  
 else
  puts 'problem.'
+end
+rescue NoMethodError
+ load './mail.rb'
 end

@@ -2,7 +2,7 @@ require 'green_shoes'
 require 'etc'
 
 Shoes.app do
- para "Mission Two"
+ para "Mission Three"
  para 'No Mission Available Yet.'
 end
 

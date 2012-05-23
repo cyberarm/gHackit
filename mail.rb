@@ -14,6 +14,7 @@ if File.open(Lib.gsr).read.include?('mission') == false
   end
   stack do
    background '#999'
+   image "./icons/actions/mail-message-new.png"
    para 'Help!' 
    button 'read' do
     load './mails/one.rb'

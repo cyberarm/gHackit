@@ -4,7 +4,7 @@ require_relative '../lib.rb'
 
 puts 'loading MissionTwo'
 
-$lo = false
+$lo = false 
 $tools = false
 $pc2 = false
 
@@ -186,10 +186,10 @@ puts 'loaded MissionTwo'
         messages.prepend {para "Mission complete, computers melted.", stroke:lime}
         $lo = true
        end
-       time 43 do
+       timer 46 do
         @mission = {"mission" => 2}
         Lib.gsw.puts YAML.dump(@mission)
-        require_relative '../mails/one_complete.rb'
+        require_relative '../mails/two_complete.rb'
         close
        end
       else

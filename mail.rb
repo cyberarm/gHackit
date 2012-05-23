@@ -74,8 +74,54 @@ elsif save['mission'] == 1
  end
  
 elsif save['mission'] == 2
- load './missions/3.rb'
- puts "Mission Three"
+Shoes.app do
+  flow do
+   background '#222'
+   image "./icons/apps/internet-mail.png"
+   caption 'HackitMail', stroke: '#999'
+  end
+  flow do
+   background '#666'
+   para 'Thank You'
+   image "./icons/actions/mail-message-new.png"
+   button 'read' do
+    load './mails/two_complete.rb'
+    close
+   end
+  end
+  flow do
+   background '#999'
+   para 'Destroy Micro Computing Inc.'
+   button 'read' do
+    load './mails/two.rb'
+    close
+   end
+  end
+  stack do
+   background '#666'
+   para 'Thank you' 
+   button 'read' do
+    load './mails/one_complete.rb'
+    close
+   end
+  end
+  stack do
+   background '#999'
+   para 'Help!' 
+   button 'read' do
+    load './mails/one.rb'
+    close
+   end
+  end
+  button 'Refresh' do
+   load './mail.rb'
+   close
+  end
+ button 'Close Mail' do
+  Lib.main
+  close 
+ end
+ end
  
 elsif save['mission'] == 3
  load './missions/complete.rb'

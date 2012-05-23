@@ -21,6 +21,7 @@ puts 'loaded MissionOne'
    Shoes.app do
     stack do
      background '#222'
+     image "./icons/apps/internet-mail.png"
      caption 'HackitMail', stroke: '#999'
     end
     para "Message from: Sid Olson of Advanced Computing Inc."

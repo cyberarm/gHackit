@@ -9,7 +9,7 @@ if File.open(Lib.gsr).read.include?('mission') == false
  Shoes.app do
   flow do
    background '#222'
-   image "./icons/actions/mail-message-new.png"
+   image "./icons/apps/internet-mail.png"
    caption 'HackitMail', stroke: '#999'
   end
   stack do
@@ -24,18 +24,23 @@ if File.open(Lib.gsr).read.include?('mission') == false
    load './mail.rb'
    close
   end
+ button 'Close Mail' do
+  Lib.main
+  close 
  end
+end
   
 elsif save['mission'] == 1
  Shoes.app do
   flow do
    background '#222'
-   image "./icons/actions/mail-message-new.png"
+   image "./icons/apps/internet-mail.png"
    caption 'HackitMail', stroke: '#999'
   end
-  stack do
+  flow do
    background '#999'
-   para 'Destroy X Corporation' 
+   para 'Destroy X Corporation'
+   image "./icons/actions/mail-message-new.png"
    button 'read' do
     load './mails/two.rb'
     close
@@ -61,6 +66,10 @@ elsif save['mission'] == 1
    load './mail.rb'
    close
   end
+ button 'Close Mail' do
+  Lib.main
+  close 
+ end
  end
  
 elsif save['mission'] == 2

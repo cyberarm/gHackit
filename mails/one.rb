@@ -5,6 +5,7 @@
  Shoes.app do
   stack do
    background '#222'
+   image "./icons/apps/internet-mail.png"
    caption 'HackitMail', stroke: '#999'
   end
   para "Message from: Sid Olson of Advanced Computing Inc."
@@ -15,6 +16,8 @@
   para "Here's the IP: 1.7.3.9 on Port: 576."
   para "We will pay you 1000 Hackit credits if you succeed."
   para "Sincerly, Sid Olson."
+  
+  image "./icons/actions/mail-forward.png"
   button "Accept and Save IP/Port" do
    Mission.one
    close

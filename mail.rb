@@ -6,7 +6,8 @@ require_relative 'lib.rb'
 
 begin 
 if File.open(Lib.gsr).read.include?('mission') == false
- Shoes.app do
+ Shoes.app title: 'gHackit - Mail' do
+  background '#888'
   flow do
    background '#222'
    image "./icons/apps/internet-mail.png"
@@ -32,7 +33,8 @@ if File.open(Lib.gsr).read.include?('mission') == false
 end
   
 elsif save['mission'] == 1
- Shoes.app do
+ Shoes.app title: 'gHackit - Mail' do
+  background '#888'
   flow do
    background '#222'
    image "./icons/apps/internet-mail.png"
@@ -40,7 +42,7 @@ elsif save['mission'] == 1
   end
   flow do
    background '#999'
-   para 'Destroy X Corporation'
+   para 'Destroy Micro Computing Inc.'
    image "./icons/actions/mail-message-new.png"
    button 'read' do
     load './mails/two.rb'
@@ -74,16 +76,25 @@ elsif save['mission'] == 1
  end
  
 elsif save['mission'] == 2
-Shoes.app do
+Shoes.app title: 'gHackit - Mail' do
+  background '#888'
   flow do
    background '#222'
    image "./icons/apps/internet-mail.png"
    caption 'HackitMail', stroke: '#999'
   end
   flow do
+   background '#999'
+   para 'Get me the designs for the G3X'
+   image "./icons/actions/mail-message-new.png"
+   button 'read' do
+    load './mails/three.rb'
+    close
+   end
+  end
+  flow do
    background '#666'
    para 'Thank You'
-   image "./icons/actions/mail-message-new.png"
    button 'read' do
     load './mails/two_complete.rb'
     close
@@ -127,7 +138,7 @@ elsif save['mission'] == 3
  load './missions/complete.rb'
  
 else
- puts 'problem.'
+ puts 'problem with loading Mail.'
 end
 rescue NoMethodError
  load './mail.rb'

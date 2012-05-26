@@ -7,7 +7,7 @@ puts 'loading MissionOne'
 $tools = false
 $pc2 = false
 
-Shoes.app do
+Shoes.app title: 'gHackit - Mission One: Rogue A.I.' do
 puts 'loaded MissionOne'
  background '#999'
  flow do
@@ -18,7 +18,8 @@ puts 'loaded MissionOne'
   background 'gold'
   para 'Mission One: Rogue A.I.'
   button 'Message' do
-   Shoes.app do
+   window do
+    background '#999'
     stack do
      background '#222'
      image "./icons/apps/internet-mail.png"
@@ -82,8 +83,8 @@ puts 'loaded MissionOne'
      elsif $cmd.text == 'help'
       para 'retrieve_tools - retrieve tools required for mission.'
       para 'exit - close gHackit.'
-      para 'md5 - delete all files.'
-      para "pc2 - hack into the A.I's computer system."
+      para 'massdelete - delete all files.'
+      para "portcrack - hack into the A.I's computer system."
       inscription
       
      elsif $cmd.text == 'portcrack'

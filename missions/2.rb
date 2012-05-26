@@ -8,7 +8,7 @@ $lo = false
 $tools = false
 $pc2 = false
 
-Shoes.app do
+Shoes.app title: 'gHackit - Mission Two: Destroy the competition'  do
 puts 'loaded MissionTwo'
  background '#999'
  flow do
@@ -19,7 +19,8 @@ puts 'loaded MissionTwo'
   background 'green'
   para "Mission Two: Destroy the competition."
   button 'Message' do
-   Shoes.app do
+   window do
+    background '#999'
     stack do
      background '#222'
      image "./icons/apps/internet-mail.png"
@@ -58,7 +59,7 @@ puts 'loaded MissionTwo'
     if $cmd.text == ""
     else
      if $cmd.text == "exit"
-      para 'Exiting...', stroke: red
+      para 'Exiting...', stroke: darkred
       inscription
       timer 1.3 do
        exit
@@ -84,7 +85,7 @@ puts 'loaded MissionTwo'
       para 'retrieve_tools - retrieve tools required for mission.'
       para 'exit - close gHackit.'
       para 'fanstop - stops target computers fans, which cause them to overheat and meltdown.'
-      para "pc2 - hack into the computer system."
+      para "portcrack - hack into the computer system."
       para "lockout - hack into the computer system and lock them out, making yourself the systems administrator."
       inscription
       
@@ -107,7 +108,7 @@ puts 'loaded MissionTwo'
         $pc2 = true
        end
       else
-       para "Command '#{$cmd.text}' not found.\n Is it installed?", stroke: red
+       para "Command '#{$cmd.text}' not found.\n Is it installed?", stroke: darkred
       end
       inscription
       
@@ -147,7 +148,7 @@ puts 'loaded MissionTwo'
         $lo = true
        end
       else
-       para "Command '#{$cmd.text}' not found.\n Is it installed or 'portcrack' ran?", stroke: red
+       para "Command '#{$cmd.text}' not found.\n Is it installed or 'portcrack' ran?", stroke: darkred
       end
       inscription
       
@@ -193,12 +194,12 @@ puts 'loaded MissionTwo'
         close
        end
       else
-       para "Command '#{$cmd.text}' not found.\n Is it installed or 'lockout' ran?", stroke: red
+       para "Command '#{$cmd.text}' not found.\n Is it installed or 'lockout' ran?", stroke: darkred
       end
       inscription
       
      else
-      para "Command '#{$cmd.text}' not found.\n Type 'help' for a list of commands", stroke: red
+      para "Command '#{$cmd.text}' not found.\n Type 'help' for a list of commands", stroke: darkred
       inscription
      end
       $cmd.text = ""

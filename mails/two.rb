@@ -2,7 +2,7 @@
  require 'etc'
  require_relative '../lib.rb'
  
- Shoes.app do
+ Shoes.app title: 'gHackit - Message' do
   background '#999'
   stack do
    background '#222'

@@ -1,7 +1,7 @@
 require 'green_shoes'
 require 'etc'
 
-Shoes.app do
+Shoes.app title: 'gHackit - Game Complete' do
  background '#999'
  stack do
   background '#222'
@@ -12,4 +12,6 @@ Shoes.app do
  para "-------------------------------------"
  para 'Game created by:'
  para link('cyberarm', click: 'https://github.com/cyberarm')
+ para 'Game source-code:'
+ para link('https://github.com/cyberarm/gHackit', click: 'https://github.com/cyberarm/gHackit')
 end

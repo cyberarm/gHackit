@@ -8,7 +8,7 @@ class Lib
  end
  
  def Lib.main
-Shoes.app do
+Shoes.app title: 'gHackit - Main' do
  border gray, strokewidth: 4
  background "#444"
  title = stack padding_top:50 do

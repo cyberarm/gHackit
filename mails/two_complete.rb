@@ -1,7 +1,8 @@
  require 'green_shoes'
  require 'etc'
  
- Shoes.app do
+ Shoes.app title: 'gHackit - Message' do
+  background '#999'
   stack do
    background '#222'
    image "./icons/apps/internet-mail.png"
